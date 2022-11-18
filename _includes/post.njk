@@ -12,7 +12,7 @@ permalink: /{{ page.date | dateToFolders }}/{{ page.fileSlug }}/index.html
 <div class="related">
   <h2>Latest Posts</h2>
   <ul class="related-posts">
-    {% for post in collections.posts | latest(3, page.url) %}
+    {% for post in collections.posts | reverse | latest(3, page.url) | reverse %}
       <li>
         <h3>
           <a href="{{ post.url | url }}">
