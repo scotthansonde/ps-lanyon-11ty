@@ -16,16 +16,11 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addFilter("dateToFolders", (date) => {
     return format(date, "yyyy/LL/dd"); // 1986/10/09
   });
-  eleventyConfig.addFilter("latest", (posts, num = 3, skip = "") => {
-    const latest = [];
-    for (const post of posts) {
-      if (post.url != skip) {
-        const len = latest.unshift(post);
-        if (len === num) break;
-      }
-    }
-    return latest;
+
+  eleventyConfig.addFilter("limit", function (arr, limit) {
+    return arr.slice(0, limit);
   });
+
   eleventyConfig.addFilter("post_permalink", (page) => {
     const yyyy = page.date.getFullYear();
     const mm = String(page.date.getMonth() + 1).padStart(2, "0");
