@@ -10,7 +10,7 @@ const handler = async function () {
 
     const response = await fetch("http://rpc.rsscloud.io:5337/ping", {
       method: "POST",
-      headers: {'Accept': 'application/json'}
+      headers: { Accept: "application/json" },
       body: params,
     });
     const data = await response.json();
