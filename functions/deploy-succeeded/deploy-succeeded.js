@@ -12,8 +12,8 @@ const handler = async function () {
       method: "POST",
       body: params,
     });
-    const data = await response.json();
-    console.log(data);
+    // const data = await response.json();
+    console.log(response);
   } catch (error) {
     // output to netlify function log
     console.log(error);
