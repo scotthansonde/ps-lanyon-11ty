@@ -1,31 +1,23 @@
 {
-  "name": "lanyon-11ty",
+  "name": "ps-lanyon-11ty",
   "version": "0.0.0",
-  "description": "A reserved Eleventy theme that places the utmost gravity on content with a hidden drawer. Made by @mdo, ported by @givemesnacks.",
+  "description": "A personal weblog by Scott Hanson",
   "dependencies": {
-    "@11ty/eleventy": "^0.8.1",
-    "@11ty/eleventy-plugin-rss": "^1.0.6",
-    "luxon": "^1.12.1"
+    "@11ty/eleventy": "^1.0.2",
+    "@11ty/eleventy-plugin-rss": "^1.2.0",
+    "luxon": "^3.1.0"
   },
   "scripts": {
-    "build": "npx eleventy",
-    "watch": "npx eleventy --watch",
-    "debug": "DEBUG=* npx eleventy"
+    "build": "npx @11ty/eleventy",
+    "bench": "DEBUG=Eleventy:Benchmark* npx @11ty/eleventy",
+    "watch": "npx @11ty/eleventy --watch",
+    "serve": "npx @11ty/eleventy --serve",
+    "start": "npx @11ty/eleventy --serve",
+    "debug": "DEBUG=* npx @11ty/eleventy"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/gswalden/lanyon-11ty.git"
+    "url": "https://github.com/scotthansonde/ps-lanyon-11ty"
   },
-  "license": "MIT",
-  "contributors": [
-    {
-      "name": "Mark Otto",
-      "email": "markd.otto@gmail.com",
-      "url": "http://mdo.fm"
-    },
-    {
-      "name": "Greg Walden",
-      "url": "https://www.gsw.nyc/"
-    }
-  ]
+  "license": "MIT"
 }

@@ -6,26 +6,38 @@
 <div class="sidebar" id="sidebar">
   <div class="sidebar-item">
     <p>{{ site.description | safe }}</p>
+    <p>
+        <a href="https://norden.social/@ScottHansonDE" rel="me">@ScottHansonDE@norden.social</a>
+        <br />
+        Twitter: <a href="https://twitter.com/ScottHansonDE">@ScottHansonDE</a>
+        <br />
+        GitHub: <a href="http://github.com/ScottHansonDE">ScottHansonDE</a>
+      </p>
   </div>
 
   <nav class="sidebar-nav">
     <a class="sidebar-nav-item{% if '/' == page.url %} active{% endif %}" href="{{ '/' | url }}">Home</a>
-
+<a class="sidebar-nav-item{% if '/about' == page.url %} active{% endif %}" href="{{ '/about' | url }}">About</a>
     {#
       The code below dynamically generates a sidebar nav of pages with
       `layout: page` in the front-matter. See readme for usage.
     #}
 
-    {% for item in collections.pages %}
-      <a class="sidebar-nav-item{% if item.url == page.url %} active{% endif %}" href="{{ item.url | url }}">{{ item.data.title }}</a>
+    {% for item in collections.posts | reverse %}
+      <a class="sidebar-nav-item{% if item.url == page.url %} active{% endif %}" href="{{ item.url | url }}">{{  item.date | dateToString }}</a>
     {% endfor %}
 
-    <a class="sidebar-nav-item" href="{{ repoUrl }}/archive/v{{ pkg.version }}.zip">Download</a>
+    {# <a class="sidebar-nav-item" href="{{ repoUrl }}/archive/v{{ pkg.version }}.zip">Download</a>
     <a class="sidebar-nav-item" href="{{ repoUrl }}">GitHub project</a>
-    <span class="sidebar-nav-item">Currently v{{ pkg.version }}</span>
+    <span class="sidebar-nav-item">Currently v{{ pkg.version }}</span> #}
   </nav>
 
   <div class="sidebar-item">
+    Powered by <a href="https://www.11ty.dev/">11ty</a>, styled by
+      <a href="http://lanyon.getpoole.com/">lanyon</a> as ported to
+      <a href="https://github.com/gswalden/lanyon-11ty">lanyon-11ty</a>, served by
+      <a href="https://www.netlify.com/">netlify</a>, code and posts at
+      <a href="https://github.com/scotthansonde/ps-lanyon-11ty">GitHub</a>.
     <p>
       &copy; {{ year }}. All rights reserved.
     </p>
