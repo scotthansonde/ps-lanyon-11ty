@@ -22,6 +22,7 @@
     <description>{{ metadata.subtitle }}</description>
     <pubDate>{{ collections.posts | getNewestCollectionItemDate | dateToRfc822 }}</pubDate>
     <language>{{ metadata.language }}</language>
+    <cloud domain="rpc.rsscloud.io" port="5337" path="/pleaseNotify" registerProcedure="" protocol="http-post" />
     {%- for post in collections.posts | reverse %}
     {%- set absolutePostUrl = post.url | absoluteUrl(metadata.url) %}
     <item>

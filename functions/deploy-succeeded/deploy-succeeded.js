@@ -10,10 +10,11 @@ const handler = async function () {
 
     const response = await fetch("http://rpc.rsscloud.io:5337/ping", {
       method: "POST",
+      headers: {'Accept': 'application/json'}
       body: params,
     });
-    // const data = await response.json();
-    console.log(response);
+    const data = await response.json();
+    console.log(data);
   } catch (error) {
     // output to netlify function log
     console.log(error);
