@@ -33,7 +33,7 @@ module.exports = function (eleventyConfig) {
     return `${yyyy}/${mm}/${dd}/${page.fileSlug}/`;
   });
 
-  for (const f of ["css", "public"]) {
+  for (const f of ["css", "public", "admin/"]) {
     eleventyConfig.addPassthroughCopy(f);
   }
 
