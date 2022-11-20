@@ -12,11 +12,11 @@ const handler = async function (event, _context) {
     });
     const data = await response.json();
     console.log(data);
-    console.log(event.alias);
   } catch (error) {
     // output to netlify function log
     console.log(error);
   }
+  console.log(event.alias);
 };
 
 module.exports = { handler };
