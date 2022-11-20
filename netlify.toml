@@ -1,5 +1,5 @@
 [dev]
-  command = "npm run watch"
+  command = "npm run serve"
 [build]
   command = "npm run build"
   publish = "_site"
