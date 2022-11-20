@@ -1,6 +1,6 @@
 const fetch = require("node-fetch");
 
-const handler = async function (_event, context) {
+const handler = async function (event, _context) {
   try {
     const params = new URLSearchParams();
     params.append("url", "https://scotthanson.de/feed.xml");
@@ -12,7 +12,7 @@ const handler = async function (_event, context) {
     });
     const data = await response.json();
     console.log(data);
-    console.log(context);
+    console.log(event);
   } catch (error) {
     // output to netlify function log
     console.log(error);
