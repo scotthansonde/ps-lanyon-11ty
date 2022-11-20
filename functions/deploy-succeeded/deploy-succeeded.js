@@ -16,7 +16,7 @@ const handler = async function (event, _context) {
     // output to netlify function log
     console.log(error);
   }
-  console.log(event);
+  console.log(JSON.stringify(event));
 };
 
 module.exports = { handler };
