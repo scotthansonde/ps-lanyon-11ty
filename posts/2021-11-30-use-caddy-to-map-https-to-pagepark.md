@@ -16,7 +16,7 @@ Here is an example of setting up Caddy on an existing PagePark installation on a
 
 1. Replace the entire contents with:
 
-```
+```js
 {
   on_demand_tls {
     ask http://localhost:1339/isdomainvalid
@@ -46,7 +46,7 @@ If you have not mapped port 80 to PagePark, the configuration above will also li
 
 If you'd rather not redirect port 80, you can add a section for HTTP and disable redirects like this:
 
-```
+```js
 {
   auto_https disable_redirects
   on_demand_tls {
@@ -78,7 +78,7 @@ The output will look something like this:
 
 The number in front of the rule is the rule number. To delete these two rules, we need two commands
 
-```
+```sh
 sudo iptables -t nat -D PREROUTING 1
 sudo iptables -t nat -D OUTPUT 1
 ```

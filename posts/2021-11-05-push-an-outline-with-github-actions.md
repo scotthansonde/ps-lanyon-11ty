@@ -8,7 +8,7 @@ Actions are in <a href="https://yaml.org/">YAML</a> files saved in a special dir
 
 Fetching an outline from Drummer and committing it to the repository was pretty easy...
 
-```
+```yml
 name: fetch-opml
 on: [workflow_dispatch]
 jobs:
