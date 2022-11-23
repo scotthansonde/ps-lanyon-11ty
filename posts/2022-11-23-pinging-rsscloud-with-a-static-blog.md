@@ -8,7 +8,7 @@ O﻿ne way to connect a blog to RSS readers and communities is to ping an RSSClo
 
 H﻿owever, my hoster Netlify offers serverless functions (as do similar hosters like Vercel, Cloudflare, DigitalOcean, etc.).  Specifically, I can run a [function on a "deploy-successful" event,](https://docs.netlify.com/functions/trigger-on-events/) so I know the blog has just been rebuilt. RSSCloud expects a POST request, so I can send that off with node-fetch.
 
-js
+```js
 
 const fetch = require("node-fetch");
 
@@ -51,3 +51,4 @@ console.log(error);
 
 
 module.exports = { handler };
+```
