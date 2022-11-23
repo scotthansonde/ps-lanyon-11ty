@@ -1,3 +1,26 @@
-pre {
+pre,
+pre[class*='language-'] {
   padding: 1em;
+}
+
+/* copied from prism-base16-monokai.dark  */
+/* padding adjusted for inline code */
+code {
+  /* font-size: 14px;
+  line-height: 1.375; */
+  padding: 0.1em 0.25em;
+  direction: ltr;
+  text-align: left;
+  white-space: pre;
+  word-spacing: normal;
+  word-break: normal;
+  -moz-tab-size: 2;
+  -o-tab-size: 2;
+  tab-size: 2;
+  -webkit-hyphens: none;
+  -moz-hyphens: none;
+  -ms-hyphens: none;
+  hyphens: none;
+  background: #272822;
+  color: #f8f8f2;
 }

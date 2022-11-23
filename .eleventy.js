@@ -1,13 +1,17 @@
 const { readFileSync } = require('fs')
 const { DateTime } = require('luxon')
 const pluginRss = require('@11ty/eleventy-plugin-rss')
-const syntaxHighlight = require('@11ty/eleventy-plugin-syntaxhighlight')
+const markdownIt = require('markdown-it')
+const prism = require('markdown-it-prism')
 
 function format(date, str) {
   return DateTime.fromJSDate(date, { zone: 'utc' }).toFormat(str)
 }
 
 module.exports = function (eleventyConfig) {
+  let options = {
+    html: true,
+  }
   eleventyConfig.addFilter('dateToString', (date) => {
     return format(date, 'dd LLL yyyy') // 09 Oct 1986
   })
@@ -34,7 +38,12 @@ module.exports = function (eleventyConfig) {
   }
 
   eleventyConfig.addPlugin(pluginRss)
-  eleventyConfig.addPlugin(syntaxHighlight)
+
+  let markdownLibrary = markdownIt(options).use(prism, {
+    // highlightInlineCode: true,
+    defaultLanguage: 'plain',
+  })
+  eleventyConfig.setLibrary('md', markdownLibrary)
 
   eleventyConfig.setBrowserSyncConfig({
     callbacks: {
