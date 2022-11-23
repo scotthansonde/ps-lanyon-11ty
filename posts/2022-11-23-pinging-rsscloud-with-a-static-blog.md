@@ -5,7 +5,7 @@ tags:
   - post
 ---
 
-One way to connect a blog to RSS readers and communities is to ping an [RSSCloud server](http://rpc.rsscloud.io:5337/docs) whenever your feed changes. But with the Jamstack model of triggering deploys to a static site hoster, I wasn't sure how to implement that, and a [web search](https://duckduckgo.com/?q=jamstack+rsscloud) did not offer much help.
+One way to connect a blog to RSS readers and communities (like [FeedLand](http://feedland.org)) is to ping an [RSSCloud server](http://rpc.rsscloud.io:5337/docs) whenever your feed changes. But with the Jamstack model of triggering deploys to a static site hoster, I wasn't sure how to implement that, and a [web search](https://duckduckgo.com/?q=jamstack+rsscloud) did not offer much help.
 
 H﻿owever, my hoster [Netlify](https://www.netlify.com/) offers serverless functions (as do similar hosters like [Vercel](https://vercel.com/), [Cloudflare Pages](https://pages.cloudflare.com/), [DigitalOcean Apps](https://www.digitalocean.com/products/app-platform), etc.). Specifically, I can run a [function on a "deploy-successful" event,](https://docs.netlify.com/functions/trigger-on-events/) so I know the blog has just been rebuilt. RSSCloud expects a POST request, so I can send that off with node-fetch.
 
@@ -32,3 +32,5 @@ const handler = async function (_event, _context) {
 
 module.exports = { handler }
 ```
+
+Now RSS readers that listen to RSSCloud servers will know about changes to my feed within seconds.
