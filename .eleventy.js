@@ -33,9 +33,10 @@ module.exports = function (eleventyConfig) {
     return `${yyyy}/${mm}/${dd}/${page.fileSlug}/`
   })
 
-  for (const f of ['css', 'public', 'admin/']) {
+  for (const f of ['css', 'admin/']) {
     eleventyConfig.addPassthroughCopy(f)
   }
+  eleventyConfig.addPassthroughCopy({ public: '/' })
 
   eleventyConfig.addPlugin(pluginRss)
 
